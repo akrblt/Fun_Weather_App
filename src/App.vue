@@ -1,5 +1,6 @@
 <script setup>
 import HelloWeather from './components/HelloWeather.vue';
+import SearchBar from './components/SearchBar.vue';
 
 </script>
 
@@ -12,6 +13,7 @@ import HelloWeather from './components/HelloWeather.vue';
       
   </div>
   <HelloWeather msg="Bienvenue Fun Weather" />
+  <SearchBar/>
 </template>
 
 <style scoped>
