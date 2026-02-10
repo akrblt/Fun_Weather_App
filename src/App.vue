@@ -1,32 +1,36 @@
 <script setup>
-import HelloWeather from './components/HelloWeather.vue';
-import SearchBar from './components/SearchBar.vue';
 
 </script>
 
 <template>
-  <div>
-    
-      <img src="../src/assets/img/sun.webp" class="logo" alt="Vite logo" />
-    
-    
-      
+  <div class="app-container">
+    <router-view />
   </div>
-  <HelloWeather msg="Bienvenue Fun Weather" />
-  <SearchBar/>
+
+
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<style>
+:root {
+  font-family: Inter , system-ui, Avenir,Helvetica,Arial, sans-serif;
+  background-color: #ffffff;
+  color: #000000;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+#app {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.app-container {
+  width: 100%;
 }
 </style>
