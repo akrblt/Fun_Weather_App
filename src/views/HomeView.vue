@@ -10,7 +10,7 @@ const listeSuggestions=ref([
 const allerAlaVille =(nomVille)=> {
     router.push({
         name:'resultat',
-        param:{ville:nomVille}
+        params:{ville:nomVille}
     });
 };
 
