@@ -4,7 +4,7 @@ import SearchBar from '../SearchBar.vue' // be careful the path is correct
 
 describe('SearchBar Test', () => {
   it('should have a button with the text CHERCHER', () => {
-    // Bileşeni sanal olarak oluştur
+    // Create the component virtually
     const wrapper = mount(SearchBar)
     
     // Find the button element
