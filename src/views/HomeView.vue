@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from 'vue';
+import {onMounted, ref} from 'vue';
 import { useRouter } from 'vue-router';
 import SearchBar from '../components/SearchBar.vue';
 const router=useRouter();
@@ -13,6 +13,13 @@ const allerAlaVille =(nomVille)=> {
         params:{ville:nomVille}
     });
 };
+
+const favoris=ref([])
+onMounted(()=>{
+  //recupre les favoris dans local storage
+  const saved=JSON.parse(localStorage.getItem('weather_favs') || '[]')
+  favoris.value=saved
+})
 
 </script>
 
@@ -29,7 +36,21 @@ const allerAlaVille =(nomVille)=> {
         <p class="sous-titre">Recherchez la météo de votre ville</p>
         <SearchBar @chercher="allerAlaVille" />
 
-        <section class="section-suggestions">
+        <section v-if="favoris.length > 0" class="section-suggestions favoris">
+            <p class="label-suggestions">⭐ MES FAVORIS ({{ favoris.length }}/5) : </p>
+            <div class="grille-suggestion">
+                <button
+                    v-for="ville in favoris"
+                    :key="ville"
+                    @click="allerAlaVille(ville)"
+                    class="bouton-suggestion bouton-favori"
+                >
+                    <span class="pin">📍</span> {{ ville }}
+                </button>
+            </div>
+        </section>
+
+        <section  class="section-suggestions ">
             <p class="label-suggestions">VILLES SUGGéRéES : </p>
             <div class="grille-suggestion">
                 <button
@@ -44,7 +65,7 @@ const allerAlaVille =(nomVille)=> {
         </section>
 
         <footer class="pied-de-page">
-            <p>Weather App</p>
+            <p>Weather App  -  2026</p>
 
         </footer>
 
@@ -94,6 +115,11 @@ const allerAlaVille =(nomVille)=> {
   padding: 20px;
   margin-top: 30px;
   text-align: left;
+  background-color: #f9f9f9;
+}
+.favoris{
+  border-color: #ffd700; 
+  background-color: #fffdf0;
 }
 
 .label-suggestions {
@@ -105,7 +131,7 @@ const allerAlaVille =(nomVille)=> {
 
 .grille-suggestions {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 sütunlu yapı */
+  grid-template-columns: repeat(auto-fill,minmax(150px,1fr)); 
   gap: 15px;
 }
 
@@ -118,12 +144,20 @@ const allerAlaVille =(nomVille)=> {
   align-items: center;
   justify-content: center;
   font-weight: 500;
-  transition: transform 0.1s;
+  transition: all 0.2s ease;
 }
 
 .bouton-suggestion:hover {
   background-color: #f0f0f0;
   transform: translateY(-2px);
+}
+.bouton-favori {
+    border-color: #f39c12;
+}
+.bouton-suggestion:hover {
+  background-color: black;
+  color: white;
+  transform: translateY(-3px);
 }
 
 .pied-de-page {
