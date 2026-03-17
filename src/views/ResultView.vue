@@ -267,7 +267,7 @@ const formatDate = (dateStr) =>{
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  color: white;
+  color: rgb(24, 23, 23);
   font-weight: bold;
   font-size: 0.8rem;
   letter-spacing: 0.5px;
