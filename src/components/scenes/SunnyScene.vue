@@ -11,7 +11,10 @@ import sunButterfly from '../../assets/animations/sun_butterfly.json'
       <Vue3Lottie :animationData="sunJson" :height="150" :width="150" />
     </div>
     <div class="layer butterfly">
-      <Vue3Lottie :animationData="sunButterfly" :height="80" :width="80" />
+      <Vue3Lottie :animationData="sunButterfly" :height="100" :width="80" />
+      <Vue3Lottie :animationData="sunButterfly" :height="100" :width="80" />
+      <Vue3Lottie :animationData="sunButterfly" :height="100" :width="80" />
+      
     </div>
     <div class="layer kids">
       <Vue3Lottie :animationData="sunKids" :height="300" :width="300" />
@@ -22,7 +25,7 @@ import sunButterfly from '../../assets/animations/sun_butterfly.json'
 <style scoped>
 .lottie-canvas { position: absolute; inset: 0; pointer-events: none; }
 .layer { position: absolute; }
-.sun { top: 20px; right: 20px; }
-.butterfly { top: 120px; left: 15%; }
-.kids { bottom: -20px; left: 50%; transform: translateX(-50%); }
+.sun { top: 0%; right: 20px; }
+.butterfly { top: 100px; left: 15%; }
+.kids { bottom: -60px; left: 80%; transform: translateX(-50%); }
 </style>

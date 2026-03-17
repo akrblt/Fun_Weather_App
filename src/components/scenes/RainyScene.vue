@@ -14,11 +14,12 @@ import rainyVomanJSON from '../../assets/animations/rainy_voman.json'
     </div>
 
     <div class="layer clothes-layer">
-      <Vue3Lottie :animationData="rainyVomanJSON" :height="200" />
+      <Vue3Lottie :animationData="rainyVomanJSON" :height="200" :speed="1.8" />
     </div>
 
     <div class="layer runner-layer">
-      <Vue3Lottie :animationData="rainyRunJSON" :height="220" />
+      <Vue3Lottie :animationData="rainyRunJSON" :height="220" :speed="1.5" />
+      
     </div>
   </div>
 </template>
