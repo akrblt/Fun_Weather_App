@@ -9,22 +9,22 @@ import windy_souffle from '../../assets/animations/windy_souffle.json'
 
 <div class="lottie-canvas windy">
     <div class="layer wind">
-        <Vue3Lottie :animation-data="windy_souffle" :height="150" width="80" />
-        <Vue3Lottie :animation-data="windy_souffle" :height="150" width="80" />
-        <Vue3Lottie :animation-data="windy_souffle" :height="150" width="80" />
+        <Vue3Lottie :animation-data="windy_souffle" :height="130" width="80"  />
+        <Vue3Lottie :animation-data="windy_souffle" :height="130" width="80" />
+        <Vue3Lottie :animation-data="windy_souffle" :height="130" width="80"  />
     </div>
     <div class="layer person">
-        <Vue3Lottie :animation-data="windy_person" :height="150" width="80" />
+        <Vue3Lottie :animation-data="windy_person" :height="150" width="80" speed="1.7" />
         
     </div>
     <div class="layer person1">
-        <Vue3Lottie :animation-data="windy_person" :height="150" width="80" />
+        <Vue3Lottie :animation-data="windy_person" :height="150" width="80" speed="1.7" />
        
     </div>
     <div class="layer flag">
-        <Vue3Lottie :animation-data="windy_flag" :width="150" height="80"/>
-        <Vue3Lottie :animation-data="windy_flag" :width="150" height="80"/>
-        <Vue3Lottie :animation-data="windy_flag" :width="150" height="80"/>
+        <Vue3Lottie :animation-data="windy_flag" :width="130" height="80"/>
+        <Vue3Lottie :animation-data="windy_flag" :width="130" height="80"/>
+        <Vue3Lottie :animation-data="windy_flag" :width="130" height="80"/>
     </div>
 </div>
 
@@ -39,7 +39,7 @@ import windy_souffle from '../../assets/animations/windy_souffle.json'
     position: absolute;
 }
 .wind{
-top: 50px; left: 10px;
+top: 50px; left: 0;
 }
 .person {
     top: 60%; left: 25%;
