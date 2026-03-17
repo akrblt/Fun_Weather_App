@@ -152,10 +152,19 @@ const formatDate = (dateStr) =>{
 </template>
 
 <style scoped>
+
+.result-container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
 .weather-scene-card {
   position: relative;
   width: 100%;
-  height: 450px;
+  min-height: 350px;
+  height: auto;
+  padding: 40px 20px;
   margin-top: 20px;
   border-radius: 25px;
   overflow: hidden; 
@@ -215,9 +224,10 @@ const formatDate = (dateStr) =>{
 }
 
 .temp-big {
-  font-size: 5rem;
-  font-weight: 800;
+  font-size: clamp(3rem,15vw,5rem);
+   font-weight: 800;
   margin: 10px 0;
+ line-height: 1;
 }
 
 .btn-retour {
@@ -300,7 +310,7 @@ const formatDate = (dateStr) =>{
 }
 
 /* Mobilde yazı çok yer kaplamasın diye ayar */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .fav-text {
     display: none; /* Mobilde sadece yıldız kalsın veya yazıyı kısalt */
   }
@@ -335,8 +345,10 @@ toutes les structure
 .forecast-container { margin-top: 50px; }
 
 .forecast-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
   gap: 15px;
+  width: 100%;
   justify-content: center;
   flex-wrap: wrap;
 }
