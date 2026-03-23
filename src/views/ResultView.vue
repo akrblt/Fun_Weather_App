@@ -29,13 +29,14 @@ const sceneMap={
 
 // logic to determine the scene
 const weatherMain = computed(()=>{
-  if(!displayData.value) return 'sun'
+  if(!displayData.value || !displayData.value.weather) return 'sun'
   const main=displayData.value.weather[0].main.toLowerCase()
   const wind= displayData.value.wind.speed
   if(wind > 25) return 'windy'
   if(main.includes('cloud')) return 'cloudly'
-  if(main.includes('rain') || main.includes('drizzle')) return 'rainy'
+  if(main.includes('rain') || main.includes('drizzle') || main.includes('thunderstorm')) return 'rainy'
   if(main.includes('snow')) return 'snowy'
+  if(main.includes('clear')) return 'sun'
   
 })
 // fonc les favoris max 5 jours
@@ -271,21 +272,33 @@ const formatDate = (dateStr) =>{
   align-items: center;
   gap: 10px;
   padding: 8px 15px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(8px); /* Arkadaki sahneyi hafif bulanıklaştırır */
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(0, 0, 0, 0.2);
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   color: rgb(24, 23, 23);
   font-weight: bold;
   font-size: 0.8rem;
+  box-shadow: 0 4px 15px rgba(350,350,350,0.1);
   letter-spacing: 0.5px;
 }
 
 .star-icon {
   font-size: 1.2rem;
   transition: transform 0.3s ease;
+}
+
+.fav-text {
+  /* Ajoute ceci pour que les lettres se détachent du blanc */
+  text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.8);
+}
+
+.btn-favori-badge:not(.is-fav) {
+  /* Un léger dégradé gris/blanc pour simuler du relief */
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  border: 1px solid #ccc;
 }
 
 /* Favori durumunda stil değişimi */
